@@ -17,7 +17,7 @@ QT_END_NAMESPACE
 
 class VideoPlayer : public QWidget
 {
-    Q_OBJECT
+	Q_OBJECT
 	public:
 		VideoPlayer(QWidget *parent = 0);
 		~VideoPlayer();
