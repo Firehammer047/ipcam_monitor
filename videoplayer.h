@@ -19,8 +19,8 @@ class VideoPlayer : public QWidget
 {
     Q_OBJECT
 	public:
-    	VideoPlayer(QWidget *parent = 0);
-    	~VideoPlayer();
+		VideoPlayer(QWidget *parent = 0);
+		~VideoPlayer();
 		void setUrl(const QString &myurl);
 	
 	public slots:
@@ -31,7 +31,7 @@ class VideoPlayer : public QWidget
 	private slots:
 
 	private:
-    	QMediaPlayer* mediaPlayer;
+		QMediaPlayer* mediaPlayer;
 		QLineEdit *urlText;
 		QAbstractButton *playButton;
 		QAbstractButton *newButton;
