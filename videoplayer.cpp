@@ -16,17 +16,16 @@ VideoPlayer::VideoPlayer(QWidget *parent)
     , newButton(0)
     , killButton(0)
 {
-    mediaPlayer = new QMediaPlayer(this, QMediaPlayer::VideoSurface);
+	mediaPlayer = new QMediaPlayer(this, QMediaPlayer::VideoSurface);
 	QVideoWidget *videoWidget = new QVideoWidget;
 
 	urlText = new QLineEdit;
 	urlText->setPlaceholderText("http://user:password@myipaddress:8080/video.cgi");
     
 	playButton = new QPushButton;
-    //playButton->setEnabled(false);
-    playButton->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
-    connect(playButton, SIGNAL(clicked()), this, SLOT(play()));
-    
+	playButton->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
+	connect(playButton, SIGNAL(clicked()), this, SLOT(play()));
+	
 	newButton = new QPushButton;
 	newButton->setText("New Player");
 //	newButton->setIcon(style()->standardIcon(QStyle::SP_VistaShield));
@@ -37,21 +36,20 @@ VideoPlayer::VideoPlayer(QWidget *parent)
 	connect(killButton, SIGNAL(clicked()), this, SLOT(killAll()), Qt::QueuedConnection);
 
 // LAYOUT
-    QBoxLayout *controlLayout = new QHBoxLayout;
-    controlLayout->setMargin(0);
-    controlLayout->addWidget(urlText);
-    controlLayout->addWidget(playButton);
-    controlLayout->addWidget(newButton);
-    controlLayout->addWidget(killButton);
+	QBoxLayout *controlLayout = new QHBoxLayout;
+	controlLayout->setMargin(0);
+	controlLayout->addWidget(urlText);
+	controlLayout->addWidget(playButton);
+	controlLayout->addWidget(newButton);
+	controlLayout->addWidget(killButton);
+	QBoxLayout *layout = new QVBoxLayout;
+	layout->addLayout(controlLayout);
+	layout->addWidget(videoWidget);
 
-    QBoxLayout *layout = new QVBoxLayout;
-    layout->addLayout(controlLayout);
-    layout->addWidget(videoWidget);
-
-    setLayout(layout);
+	setLayout(layout);
 // END LAYOUT
 
-    mediaPlayer->setVideoOutput(videoWidget);
+mediaPlayer->setVideoOutput(videoWidget);
 }
 
 VideoPlayer::~VideoPlayer()
